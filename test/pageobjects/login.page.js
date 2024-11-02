@@ -22,11 +22,6 @@ class LoginPage{
         await this.inputPassword.setValue(password);
         await this.loginButton.click();
     }
-
-    async getAlertText() {
-        await this.alertMessage.waitForDisplayed(); // Wait until the alert message is visible
-        return await this.alertMessage.getText(); // Return the text of the alert message
-    }
     
     
 }

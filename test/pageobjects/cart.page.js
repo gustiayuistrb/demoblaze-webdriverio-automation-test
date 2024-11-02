@@ -10,6 +10,8 @@ class CartPage{
     get cartMenu() { return $('//a[@id="cartur"]'); }
     get addToCartButton() { return $("//a[text()='Add to cart']"); }
     get productDetailTitle() { return $("//h2[@class='name']"); }
+    get deleteButton() { return $("//a[text()='Delete']")}
+    get cartItems() { return $$('//tbody[@id="tbodyid"]/tr/td[2]'); }
 
     async clickProductSamsung6(){
         await this.samsungs6.click();
@@ -31,6 +33,18 @@ class CartPage{
 
     async clickAddToCartButton(){
         await this.addToCartButton.click();
+    }
+
+    async clickDeleteProduct(){
+        await this.deleteButton.click();
+    }
+
+    async getCartItemsText() {
+        const items = await this.cartItems; 
+        if (items.length === 0) {
+            return []; 
+        }
+        return Promise.all(items.map(async item => await item.getText()));
     }
 }
 

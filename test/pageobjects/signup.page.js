@@ -19,22 +19,8 @@ class SignUpPage{
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.signUpButton.click();
-
     }
 
-    async getAlertText() {
-        const alertText = await browser.getAlertText();
-        return alertText; 
-   }
-   
-
-    // async acceptAlert() {
-    //     // Menggunakan execute untuk menutup alert
-    //     await browser.execute(() => {
-    //         window.alert = () => {};
-    //     });
-    // }
-    
 }
 
 export default new SignUpPage;
